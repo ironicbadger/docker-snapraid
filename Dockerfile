@@ -1,7 +1,7 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER IronicBadger <ironicbadger@linuxserver.io>
 
-ENV SNAPRAID_VERSION="11.2"
+ENV SNAPRAID_VERSION="11.3"
 
 # Builds SnapRAID from source
 RUN apt-get update && \
