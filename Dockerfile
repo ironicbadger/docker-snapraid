@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER IronicBadger <ironicbadger@linuxserver.io>
 
 ENV SNAPRAID_VERSION="11.3"
