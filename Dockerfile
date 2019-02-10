@@ -11,7 +11,8 @@ RUN apt-get update && \
     git \
     make \
     checkinstall \
-    curl
+    curl \
+    libblkid1
 RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v$SNAPRAID_VERSION/snapraid-$SNAPRAID_VERSION.tar.gz && \
   tar -xvf snapraid-$SNAPRAID_VERSION.tar.gz && \
   cd snapraid-$SNAPRAID_VERSION && \
