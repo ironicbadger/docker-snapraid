@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER IronicBadger <ironicbadger@linuxserver.io>
+MAINTAINER IronicBadger <alexktz@gmail.com>
 
 ENV SNAPRAID_VERSION="11.3"
 
