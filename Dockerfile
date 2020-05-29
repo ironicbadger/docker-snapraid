@@ -1,5 +1,5 @@
 FROM debian:buster
-MAINTAINER IronicBadger <alexktz@gmail.com>
+MAINTAINER Alex Kretzschmar <alexktz@gmail.com>
 
 ENV SNAPRAID_VERSION="11.5"
 
