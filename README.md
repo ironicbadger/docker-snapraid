@@ -13,4 +13,4 @@ The build script spins up a container, executes the `Dockerfile` which performs 
 
 If the version is out of date, please submit a Pull Request or open an issue.
 
-<Feb 2019> - This is still actively maintained but I don't seem to get notifications. I'm active on the linuxserver.io discord or my email address is in the dockerfile. Give that a go if your PR sits stale for a while!
+<May 2020> - This is still actively maintained but I don't seem to get notifications. I'm active on the [selfhosted.show](https://selfhosted.show/discord) discord or my email address is in the dockerfile. Give that a go if your PR sits stale for a while!

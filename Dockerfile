@@ -1,24 +1,24 @@
-FROM debian:stretch
+FROM debian:buster
 MAINTAINER IronicBadger <alexktz@gmail.com>
 
-ENV SNAPRAID_VERSION="11.3"
+ENV SNAPRAID_VERSION="11.5"
 
 # Builds SnapRAID from source
-RUN apt-get update && \
-  apt-get upgrade -y && \
-  apt-get install -y \
-    gcc \
-    git \
-    make \
-    checkinstall \
-    curl \
-    libblkid1
+RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list && \
+      apt update && \
+      apt install -y \
+        gcc \
+        git \
+        make \
+        checkinstall \
+        curl \
+        libblkid1
 RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v$SNAPRAID_VERSION/snapraid-$SNAPRAID_VERSION.tar.gz && \
-  tar -xvf snapraid-$SNAPRAID_VERSION.tar.gz && \
-  cd snapraid-$SNAPRAID_VERSION && \
-  ./configure && \
-  make -j8 && \
-  make -j8 check && \
-  checkinstall -Dy --install=no --nodoc && \
-  mkdir /build && \
-  cp *.deb /build/snapraid-from-source.deb
+      tar -xvf snapraid-$SNAPRAID_VERSION.tar.gz && \
+      cd snapraid-$SNAPRAID_VERSION && \
+      ./configure && \
+      make -j4 && \
+      make -j4 check && \
+      checkinstall -Dy --install=no --nodoc && \
+      mkdir /build && \
+      cp *.deb /build/snapraid-from-source.deb
