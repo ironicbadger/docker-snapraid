@@ -20,3 +20,4 @@ jobs:
         with:
           name: snapraid-deb.zip
           path: build/*.deb
+          if-no-files-found: error
