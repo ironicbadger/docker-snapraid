@@ -1,5 +1,7 @@
 # IronicBadger/docker-snapraid
 
+[![CI](https://github.com/IronicBadger/docker-snapraid/actions/workflows/ci.yml/badge.svg)](https://github.com/IronicBadger/docker-snapraid/actions/workflows/ci.yml)
+
 This container will allow you to build a Snapraid `.deb` file without installing any build dependencies on your system.
 
 ### Usage
