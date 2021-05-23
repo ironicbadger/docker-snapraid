@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build deb
+        run: bash build.sh
+
+      - name: Store archives
+        uses: actions/upload-artifact@v2
+        with:
+          name: snapraid-deb.zip
+          path: build/*.deb
