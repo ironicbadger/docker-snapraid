@@ -1,7 +1,7 @@
 FROM debian:buster
 MAINTAINER Alex Kretzschmar <alexktz@gmail.com>
 
-ARG SNAPRAID_VERSION="11.5"
+ARG SNAPRAID_VERSION="11.6"
 
 # Builds SnapRAID from source
 RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list && \
