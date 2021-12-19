@@ -1,10 +1,10 @@
-FROM debian:buster
+FROM debian:bullseye
 MAINTAINER Alex Kretzschmar <alexktz@gmail.com>
 
 ARG SNAPRAID_VERSION="11.6"
 
 # Builds SnapRAID from source
-RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list && \
+RUN echo 'deb http://deb.debian.org/debian bullseye-backports main' > /etc/apt/sources.list.d/backports.list && \
       apt update && \
       apt install -y \
         gcc \
