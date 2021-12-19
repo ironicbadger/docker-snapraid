@@ -1,7 +1,7 @@
 FROM debian:bullseye
 MAINTAINER Alex Kretzschmar <alexktz@gmail.com>
 
-ARG SNAPRAID_VERSION="11.6"
+ARG SNAPRAID_VERSION="12.0"
 
 # Builds SnapRAID from source
 RUN echo 'deb http://deb.debian.org/debian bullseye-backports main' > /etc/apt/sources.list.d/backports.list && \
