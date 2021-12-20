@@ -4,6 +4,9 @@
 
 This container will allow you to build a Snapraid `.deb` file without installing any build dependencies on your system.
 
+### Pre-Requisites
+You will need a working copy of [docker][docker] to build the container.
+
 ### Usage
 
 ```sh
@@ -11,12 +14,12 @@ This container will allow you to build a Snapraid `.deb` file without installing
 sudo dpkg -i snapraid*.deb
 ```
 
-If the version is omitted, the default version is used.
+If the version is omitted, the latest version of SnapRAID is used.
 
 The build script spins up a container, executes the `Dockerfile` which performs the actual build from source. The script then copies the built `.deb` artifact out onto your local system ready for installation using `dpkg`.
 
 To save building it yourself, you can also download the `.deb` file as an artifact from GitHub actions.
 
-If the version is out of date, please submit a Pull Request or open an issue.
-
 <May 2020> - This is still actively maintained but I don't seem to get notifications. I'm active on the [selfhosted.show](https://selfhosted.show/discord) discord or my email address is in the dockerfile. Give that a go if your PR sits stale for a while!
+
+[docker]:https://docs.docker.com/engine/install/

@@ -8,6 +8,8 @@ on_error() {
 }
 
 get_latest_snapraid_release() {
+  # grep gets the tag_name node from the API JSON
+  # sed regex extracts the version number, e.g. "12.0"
   curl --silent "https://api.github.com/repos/amadvance/snapraid/releases/latest" | \
     grep '"tag_name":' | \
     sed -E 's/.*v([^"]+)".*/\1/'
