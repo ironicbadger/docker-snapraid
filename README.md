@@ -20,6 +20,9 @@ The build script spins up a container, executes the `Dockerfile` which performs 
 
 To save building it yourself, you can also download the `.deb` file as an artifact from GitHub actions.
 
-<May 2020> - This is still actively maintained but I don't seem to get notifications. I'm active on the [selfhosted.show](https://selfhosted.show/discord) discord or my email address is in the dockerfile. Give that a go if your PR sits stale for a while!
+## Changes
+
+* Feb 2022 - New PR (#16) just merged which auto queries the github API for the latest snapraid release - no more waiting on me for updates!
+* May 2020 - This is still actively maintained but I don't seem to get notifications. I'm active on the [selfhosted.show](https://selfhosted.show/discord) discord or my email address is in the dockerfile. Give that a go if your PR sits stale for a while!
 
 [docker]:https://docs.docker.com/engine/install/
