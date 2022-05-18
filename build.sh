@@ -1,4 +1,5 @@
 #!/bin/bash
+# Specify a specific version via `./build.sh 12.0` otherwise latest will be used.
 
 set -Eeuo pipefail
 trap on_error ERR
