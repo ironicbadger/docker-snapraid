@@ -16,10 +16,13 @@ jobs:
         run: |
           mkdir build
           bash build.sh
+          ls -la build/
           ls -la
         
       - name: debug
-        run: ls -la
+        run: |
+          ls -la build/
+          ls -la
 
       - name: Store archives
         uses: actions/upload-artifact@v2
