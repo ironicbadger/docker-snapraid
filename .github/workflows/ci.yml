@@ -13,10 +13,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build deb
-        run: bash build.sh
+        run: |
+          mkdir build
+          bash build.sh
+          ls -la
         
       - name: debug
-        run: pwd
+        run: ls -la
 
       - name: Store archives
         uses: actions/upload-artifact@v2
