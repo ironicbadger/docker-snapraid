@@ -19,7 +19,7 @@ jobs:
         run: ls -la
         
       - name: debug2
-        run: apt install tree -y && tree
+        run: find / -name "*.deb"
 
       - name: Store archives
         uses: actions/upload-artifact@v2
