@@ -14,6 +14,12 @@ jobs:
 
       - name: Build deb
         run: bash build.sh
+        
+      - name: debug
+        run: ls -la
+        
+      - name: debug2
+        run: apt install tree -y && tree
 
       - name: Store archives
         uses: actions/upload-artifact@v2
