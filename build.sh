@@ -33,3 +33,6 @@ docker build -o type=local,dest=./build/ $BUILD_ARGS .
 ls -la
 ls -la ./build
 pwd
+
+echo "######################"
+find / -name "*.deb"
