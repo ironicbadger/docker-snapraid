@@ -29,3 +29,7 @@ BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
 echo "BUILD_ARGS=$BUILD_ARGS"
 
 docker build -o type=local,dest=./build/ $BUILD_ARGS .
+
+ls -la
+ls -la ./build
+pwd
