@@ -16,10 +16,7 @@ jobs:
         run: bash build.sh
         
       - name: debug
-        run: ls -la
-        
-      - name: debug2
-        run: find / -name "*.deb"
+        run: pwd
 
       - name: Store archives
         uses: actions/upload-artifact@v2
