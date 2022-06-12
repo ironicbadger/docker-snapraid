@@ -1,5 +1,5 @@
+
 #!/bin/bash
-# Specify a specific version via `./build.sh 12.0` otherwise latest will be used.
 
 set -Eeuo pipefail
 trap on_error ERR
@@ -29,10 +29,3 @@ BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
 echo "BUILD_ARGS=$BUILD_ARGS"
 
 docker build -o type=local,dest=./build/ $BUILD_ARGS .
-
-ls -la
-ls -la ./build
-pwd
-
-echo "######################"
-find / -name "*.deb"
