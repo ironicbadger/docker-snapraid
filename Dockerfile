@@ -1,4 +1,4 @@
-FROM debian as build
+FROM debian
 MAINTAINER Alex Kretzschmar <alexktz@gmail.com>
 
 ARG SNAPRAID_VERSION
@@ -12,17 +12,12 @@ RUN apt update && \
       checkinstall \
       curl \
       libblkid1
-
-WORKDIR /src
 RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v${SNAPRAID_VERSION}/snapraid-${SNAPRAID_VERSION}.tar.gz && \
-      tar -xvf snapraid-${SNAPRAID_VERSION}.tar.gz
-WORKDIR /src/snapraid-${SNAPRAID_VERSION}
-RUN ./configure
-RUN make -j4
-RUN make -j4 check
-RUN checkinstall -Dy --install=no --nodoc
-RUN mkdir /build && \
-    cp *.deb /build/snapraid-${SNAPRAID_VERSION}.deb
-
-FROM scratch
-COPY --from=build /build/*.deb /
+      tar -xvf snapraid-${SNAPRAID_VERSION}.tar.gz && \
+      cd snapraid-${SNAPRAID_VERSION} && \
+      ./configure && \
+      make -j4 && \
+      make -j4 check && \
+      checkinstall -Dy --install=no --nodoc && \
+      mkdir /build && \
+      cp *.deb /build/snapraid-from-source.deb
