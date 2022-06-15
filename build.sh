@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 set -Eeuo pipefail
@@ -16,16 +15,16 @@ get_latest_snapraid_release() {
     sed -E 's/.*v([^"]+)".*/\1/'
 }
 
-APP_NAME="snapraid"
-IMAGE_TAG="$APP_NAME-build"
+DOCKER_IMAGE_TAG="snapraid-build"
 LATEST_RELEASE_TAG="$(get_latest_snapraid_release)"
-BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
 
 # Uncomment BUILD_PATH if using this Dockerfile as part of an Ansible deployment
 #BUILD_PATH="/tmp/build"
 #mkdir $BUILD_PATH
 #cd $BUILD_PATH
 
-echo "BUILD_ARGS=$BUILD_ARGS"
-
-docker build -o type=local,dest=./build/ $BUILD_ARGS .
+docker build -t "$DOCKER_IMAGE_TAG" --build-arg SNAPRAID_VERSION="${1:-$LATEST_RELEASE_TAG}" .
+IMAGE_ID="$(docker create $DOCKER_IMAGE_TAG)"
+docker cp "$IMAGE_ID:/build/" .
+docker rm -v "$IMAGE_ID"
+docker rmi "$DOCKER_IMAGE_TAG"
