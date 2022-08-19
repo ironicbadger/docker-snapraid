@@ -17,7 +17,7 @@ RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v${SNAPRAID
       cd snapraid-${SNAPRAID_VERSION} && \
       ./configure && \
       make -j6 && \
-      #make -j6 check && \
+      make -j6 check && \
       checkinstall -Dy --install=no --nodoc && \
       mkdir /build && \
       cp *.deb /build/snapraid-from-source.deb
