@@ -18,17 +18,10 @@ jobs:
         run: |
           mkdir build
           bash build.sh
-        
-      - name: debug
-        run: |
-          pwd
-          tree
-          ls -la build/
-          ls -la
 
       - name: Store archives
         uses: actions/upload-artifact@v2
         with:
           name: snapraid-deb.zip
-          path: build/*.deb
+          path: build/snapraid-from-source.deb
           if-no-files-found: error
