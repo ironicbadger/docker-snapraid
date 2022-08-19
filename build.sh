@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-set -Eeuo pipefail
+#set -Eeuo pipefail
 trap on_error ERR
 
 on_error() {
