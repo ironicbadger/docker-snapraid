@@ -28,4 +28,9 @@ BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
 
 echo "BUILD_ARGS=$BUILD_ARGS"
 
-docker build -o type=local,dest=./build/ $BUILD_ARGS .
+#docker build -o type=local,dest=./build/ $BUILD_ARGS .
+docker build -t $IMAGE_TAG $BUILD_ARGS . 
+ID=$(docker create $IMAGE_TAG) 
+docker cp $ID:/build/ . 
+docker rm -v $ID 
+docker rmi $IMAGE_TAG 
