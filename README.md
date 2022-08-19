@@ -20,6 +20,10 @@ The build script spins up a container, executes the `Dockerfile` which performs 
 
 To save building it yourself, you can also download the `.deb` file as an artifact from GitHub actions.
 
+### Pre-built artifacts
+
+With each commit to `master` GitHub CI runs and uploads the built `.deb` file as an artifcat associated with every build.
+
 ## Changes
 
 * Aug 2022 - Finally fixed errors with `build.sh` for both Ansible and GitHub CI.
