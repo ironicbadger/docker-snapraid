@@ -30,5 +30,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: snapraid-deb.zip
-          path: build/build/snapraid-from-source.deb
+          path: build/*.deb
           if-no-files-found: error
