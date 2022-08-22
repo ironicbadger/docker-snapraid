@@ -1,0 +1,33 @@
+FROM fedora
+
+ARG SNAPRAID_VERSION
+
+RUN dnf install -y \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm \
+    https://github.com/rpmsphere/noarch/raw/master/r/rpmsphere-release-36-1.noarch.rpm
+
+RUN dnf update -y && \
+    dnf install -y \
+    gcc \
+    git \
+    make \
+    curl \
+    which \
+    file \
+    checkinstall \
+    rpm \
+    rpm-build \
+    rpmdevtools \
+    libblkid
+
+RUN rpmdev-setuptree
+RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v${SNAPRAID_VERSION}/snapraid-${SNAPRAID_VERSION}.tar.gz && \
+    tar -xvf snapraid-${SNAPRAID_VERSION}.tar.gz && \
+    cd snapraid-${SNAPRAID_VERSION} && \
+    ./configure && \
+    make -j6 && \
+    make -j6 check && \
+    checkinstall -Ry --install=no --nodoc && \
+    mkdir /build && \
+    cp /root/rpmbuild/RPMS/x86_64/*.rpm /build/snapraid-from-source.rpm

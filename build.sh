@@ -20,6 +20,7 @@ APP_NAME="snapraid"
 IMAGE_TAG="$APP_NAME-build"
 LATEST_RELEASE_TAG="$(get_latest_snapraid_release)"
 BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
+PACKAGE_TYPE=${2:-debian}
 
 # Uncomment BUILD_PATH if using this Dockerfile as part of an Ansible deployment
 #BUILD_PATH="/tmp/build"
@@ -27,9 +28,10 @@ BUILD_ARGS="--build-arg SNAPRAID_VERSION=${1:-$LATEST_RELEASE_TAG}"
 #cd $BUILD_PATH
 
 echo "BUILD_ARGS=$BUILD_ARGS"
+echo "PACKAGE_TYPE=${PACKAGE_TYPE}"
 
-docker build -t $IMAGE_TAG $BUILD_ARGS . 
-ID=$(docker create $IMAGE_TAG) 
-docker cp $ID:/build/ . 
-docker rm -v $ID 
-docker rmi $IMAGE_TAG 
+docker build -f Dockerfile.${PACKAGE_TYPE} -t $IMAGE_TAG $BUILD_ARGS .
+ID=$(docker create $IMAGE_TAG)
+docker cp $ID:/build/ .
+docker rm -v $ID
+docker rmi $IMAGE_TAG
